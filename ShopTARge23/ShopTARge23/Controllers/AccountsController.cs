@@ -37,6 +37,7 @@ namespace ShopTARge23.Controllers
                 var user = new ApplicationUser
                 {
                     UserName = vm.Email,
+                    Name = vm.Name,
                     Email = vm.Email,
                     City = vm.City,
                 };
@@ -124,6 +125,13 @@ namespace ShopTARge23.Controllers
             }
 
             return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Home");
         }
     }
 }

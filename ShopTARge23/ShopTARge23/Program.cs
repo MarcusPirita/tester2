@@ -68,6 +68,8 @@ namespace ShopTARge23
 
             app.UseRouting();
 
+            app.UseAuthentication();
+
             app.UseAuthorization();
 
             app.MapControllerRoute(
